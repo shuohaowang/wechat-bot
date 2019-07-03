@@ -1,11 +1,11 @@
 package io.github.biezhi.wechat.api.model;
 
 import io.github.biezhi.wechat.api.enums.MsgType;
-import io.github.biezhi.wechat.utils.StringUtils;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 微信消息，封装了原始消息
@@ -116,5 +116,6 @@ public class WeChatMessage {
     public boolean isGroup() {
         return fromUserName.contains("@@") || toUserName.contains("@@");
     }
+
 
 }

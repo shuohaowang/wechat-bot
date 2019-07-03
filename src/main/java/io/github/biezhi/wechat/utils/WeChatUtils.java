@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 @Slf4j
 public class WeChatUtils {
 
-    private static final Gson GSON        = new Gson();
+    private static final Gson GSON        = new GsonBuilder().disableHtmlEscaping().create();
     private static final Gson PRETTY_GSON = new GsonBuilder().setPrettyPrinting().create();
 
     /**

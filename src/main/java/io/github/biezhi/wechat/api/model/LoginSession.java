@@ -1,8 +1,8 @@
 package io.github.biezhi.wechat.api.model;
 
 import io.github.biezhi.wechat.api.request.BaseRequest;
-import io.github.biezhi.wechat.utils.StringUtils;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 

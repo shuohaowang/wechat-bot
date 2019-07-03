@@ -5,8 +5,8 @@ import io.github.biezhi.wechat.api.constant.Config;
 import io.github.biezhi.wechat.api.enums.AccountType;
 import io.github.biezhi.wechat.api.enums.MsgType;
 import io.github.biezhi.wechat.api.model.WeChatMessage;
-import io.github.biezhi.wechat.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 我的小机器人
@@ -60,7 +60,7 @@ public class MyBot extends WeChatBot {
     }
 
     public static void main(String[] args) {
-        new MyBot(Config.me().autoLogin(true).showTerminal(true)).start();
+        new MyBot(Config.me().autoLogin(false).showTerminal(false)).start();
     }
 
 }

@@ -21,6 +21,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -984,7 +985,7 @@ public class WeChatApiImpl implements WeChatApi {
             mediatype = "video";
         }
         String url     = String.format("%s/webwxuploadmedia?f=json", bot.session().getFileUrl());
-        String mediaId = System.currentTimeMillis() / 1000 + StringUtils.random(6);
+        String mediaId = SnowFlakeIdUtils.generateStr();
 
         Map<String, Object> uploadMediaRequest = new HashMap<>(10);
         uploadMediaRequest.put("UploadType", 2);
@@ -1042,7 +1043,7 @@ public class WeChatApiImpl implements WeChatApi {
         String url = String.format("%s/webwxsendmsgimg?fun=async&f=json&pass_ticket=%s",
                 bot.session().getUrl(), bot.session().getPassTicket());
 
-        String msgId = System.currentTimeMillis() / 1000 + StringUtils.random(6);
+        String msgId = SnowFlakeIdUtils.generateStr();
 
         Map<String, Object> msg = new HashMap<>();
         msg.put("Type", 3);
@@ -1069,7 +1070,7 @@ public class WeChatApiImpl implements WeChatApi {
     public boolean sendText(String toUserName, String msg) {
         DateUtils.sendSleep();
         String url   = String.format("%s/webwxsendmsg?pass_ticket=%s", bot.session().getUrl(), bot.session().getPassTicket());
-        String msgId = System.currentTimeMillis() / 1000 + StringUtils.random(6);
+        String msgId = SnowFlakeIdUtils.generateStr();
 
         JsonResponse response = this.client.send(new JsonRequest(url).post().jsonBody()
                 .add("BaseRequest", bot.session().getBaseRequest())

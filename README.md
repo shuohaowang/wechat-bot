@@ -138,4 +138,4 @@ boolean sendFileName(String name, String filePath);
 
 ## 开源协议
 
-[MIT](https://github.com/biezhi/wechat-api/blob/master/LICENSE)
+[MIT](https://github.com/biezhi/wechat-api/blob/master/LICENSE)# wechat-bot
